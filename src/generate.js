@@ -1,4 +1,4 @@
-var crypto = require('crypto');
+const genRandomBytes = require("randombytes");
 
 var self = module.exports;
 
@@ -10,7 +10,7 @@ var randomBytes;
 var getNextRandomValue = function() {
 	if (randomIndex === undefined || randomIndex >= randomBytes.length) {
 		randomIndex = 0;
-		randomBytes = crypto.randomBytes(RANDOM_BATCH_SIZE);
+		randomBytes = genRandomBytes(RANDOM_BATCH_SIZE);
 	}
 
 	var result = randomBytes[randomIndex];
